@@ -44,7 +44,7 @@ def solution(N, stages):
     answer = sorted(FailResult, key=FailResult.get, reverse=True)
     return answer
 
-
+#체크
 
 
 N = 5
