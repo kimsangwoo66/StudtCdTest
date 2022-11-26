@@ -16,21 +16,10 @@ moneyUnit = list(map(int, input().split()))
 moneyUnit.sort()
 cnt = 0
 value = 1
-while True:
 
-    for i in range(N):
-
-
-
-    #화폐 단위 만큼 반복
-    for coin in moneyUnit:
-
-        if value % coin
-
-    value += 1
-
-
+for x in moneyUnit:
+    if value < x:
+        break
+    value += x
 
 print(value)
-
-print(moneyUnit)
