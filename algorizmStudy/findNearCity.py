@@ -2,8 +2,10 @@
 #모든 간선의 길이가 같고 최단거리를 구하는 문제일 경우 BFS 사용
 from collections import deque
 #도시의 개수N , 도로의개수 M, 거리정보 K ,출발 도시의 번호 X
+
 N,M,K,X = map(int, input().split())
 
+#그래프의 노드의 개수는 N+1개로 만들어줘야함 -> 그래야 range에러가 안나옴
 graph = [[] for _ in range(N+1)]
 for _ in range(M):
    a, b = map(int,input().split())
