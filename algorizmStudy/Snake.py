@@ -1,8 +1,11 @@
 # 뱀 - BOJ 3190
 # 보드의 판 크기
-# 덱 사용 (디큐)
+# 덱 사용 (디큐) = 큐의 크기가 곧 뱀의 크기
 # 뱀이 해당 좌표를 차지 하고 있는 중일떄 해당 좌표값이 2로 지정
-# dx dy 우 하 좌 상
+
+# 상하 좌우 주의!!
+# dx = 상 하 이동
+# dy = 좌 우 이동
 
 from collections import deque
 #보드 판의 크기
@@ -15,8 +18,8 @@ k = int(input())
 board = [[0] * n for _ in range(n)]
 
 #방향 전환
-dx = [1,0,-1,0] #우 하 좌 상
-dy = [0,1,0,-1]
+dy = [1,0,-1,0] #우 하 좌 상
+dx = [0,1,0,-1]
 
 
 #방향
@@ -25,11 +28,12 @@ change = deque()
 
 for i in range(k):
     #해당 좌표에 사과 삽입
-    n, m = map(int, input().split())
-    board[n-1][m-1] = 1
+    x, y = map(int, input().split())
+    board[x-1][y-1] = 1
 
 time = 0
 snake = deque()
+#뱀의 초기 크기 큐에 삽입
 snake.append((0,0))
 board[0][0] = 2
 
@@ -48,7 +52,6 @@ def direct_change(c):
     if c == 'L':
         if direct == 0:
             direct = 3
-
         else:
             direct -= 1
 
@@ -92,8 +95,13 @@ def snakeGame():
 
         #이동한 좌표에 사과가 없을 경우
         else:
+            #스택의 제일 압쪽을 울여 뱀의 크기를 줄임
             snake.popleft()
+
+            #뱀의 꼬리가있던 자리를 0으로 바꿈
             board[tail_x][tail_y] = 0
+
+            #뱀의 머리가 있는 좌표를 2로 변경
             board[nx][ny] = 2
             snake.append((nx, ny))
 
