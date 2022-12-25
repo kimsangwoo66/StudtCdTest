@@ -23,3 +23,4 @@ for x in moneyUnit:
     value += x
 
 print(value)
+

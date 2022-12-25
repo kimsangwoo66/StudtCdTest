@@ -4,7 +4,6 @@
 
 #인접노드 그래프 리스트, 시작, 방문여부
 def dfs(graph, v, visited):
-
     #방문여부를 승인처리
     visited[v] = True
 
@@ -12,5 +11,7 @@ def dfs(graph, v, visited):
     for i in graph[v]:
         #방문하지 않았다면
         if visited[i] == False:
+
+
             return dfs(graph, i, visited)
 
