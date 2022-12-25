@@ -12,7 +12,7 @@
 bfs 탐색후 안전영역 구하기
 
 반복했을때 안전영역 개수중 최대 값 출력
-
+s
 """
 import sys
 from collections import deque
